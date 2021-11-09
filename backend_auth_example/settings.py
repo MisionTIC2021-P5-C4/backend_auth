@@ -74,7 +74,8 @@ REST_FRAMEWORK = {
     )
 }
 
-ROOT_URLCONF = 'backend_auth_example.urls'
+AUTH_USER_MODEL = 'auth_example.User'
+ROOT_URLCONF    = 'backend_auth_example.urls'
 
 TEMPLATES = [
     {
@@ -100,8 +101,12 @@ WSGI_APPLICATION = 'backend_auth_example.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE'   : 'django.db.backends.postgresql_psycopg2',
+        'NAME'     : 'auth_ms',
+        'USER'     : 'postgres',
+        'PASSWORD' : 'postgres',
+        'HOST'     : 'localhost',
+        'PORT'     : '5432'
     }
 }
 
