@@ -24,10 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-iw3e$f&g$(zs*^x*v&_*(t!%(8#w2fzjma1g(mef_=%q_)5u!w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS           = []
-CORS_ALLOW_ALL_ORIGINGS = True
+DEBUG         = True
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -40,14 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'auth_example',
     'rest_framework',
-    'corsheaders'
 ]
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_TIMELIFE'   : timedelta(minutes=15),
     'REFRESH_TOKEN_TIMELIFE'  : timedelta(days=1),
     'ROTATE_REFRESH_TOKENS'   : False,
-    'BLACKLIST_AFTER_ROTATION': True,
+    'BLACKLIST_AFTER_ROTATION': False,
     'UPDATE_LAST_LOGIN'       : False,
     'ALGORITHM'               : 'HS256',
     'USER_ID_FIELD'           : 'id',
@@ -62,7 +59,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
 ]
 
 REST_FRAMEWORK = {
